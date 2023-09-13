@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [Header("플레이어")]
+    [SerializeField] private GameObject playerGameObject;
+    [Header("카메라")] 
+    [SerializeField] private GameObject cameraGameObject;
+    
     void Start()
     {
         
