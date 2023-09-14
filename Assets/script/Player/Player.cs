@@ -25,15 +25,15 @@ public class Player : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody>();
     }
-
-    void Update()//Input을 정리하는 코드
+    
+    public void PlayerController() //플레이어 움직임 제어 함수
     {
         GetInput();
         Move();
         Turn();
         Jump();
     }
-    void GetInput()
+    public void GetInput()
     {
         hAxis = Input.GetAxisRaw("Horizontal");
         vAxis = Input.GetAxisRaw("Vertical");
@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
         isJump = Input.GetButtonDown("Jump");
     }
 
-    void Move()//플레이어 움직임
+    public void Move()//플레이어 움직임
     {
         moveVec = new Vector3(hAxis, 0, vAxis).normalized;
         if (isRun)
@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
             transform.position += moveVec * (speed * Time.deltaTime);//걷기(외부에서 설정)
     }
 
-    void Turn()//플레이어가 움직임에 따라 몸 돌기
+    public void Turn()//플레이어가 움직임에 따라 몸 돌기
     {
         transform.LookAt(transform.position + moveVec);
     }
